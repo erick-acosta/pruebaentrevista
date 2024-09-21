@@ -6,6 +6,8 @@ use App\Models\Customer;
 use App\Models\AuthToken;
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Routing\Controller;
+
 class AuthController extends Controller
 {
     public function login(Request $request)

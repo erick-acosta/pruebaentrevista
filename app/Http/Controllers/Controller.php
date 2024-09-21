@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Customer; 
+use Illuminate\Routing\Controller;
 
 
 
@@ -10,7 +12,7 @@ class CustomerController extends Controller{
 
      function store(Request $request)
     {
-        // Validaciones
+
         $request->validate([
             'name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -20,7 +22,6 @@ class CustomerController extends Controller{
             'commune_id' => 'required|exists:communes,id',
         ]);
 
-        // Crear el cliente
         $customer = Customer::create($request->only([
             'name',
             'last_name',
@@ -36,7 +37,7 @@ class CustomerController extends Controller{
 
      function show(Request $request)
     {
-        // Consulta del cliente activo
+
         $customer = Customer::where('dni', $request->dni)
             ->orWhere('email', $request->email)
             ->where('status', 'A')
