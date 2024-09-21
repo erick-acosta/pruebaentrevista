@@ -17,3 +17,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
+    $app->routeMiddleware([
+        'auth.token' => App\Http\Middleware\AuthTokenMiddleware::class,
+    ]
+
+    );
+

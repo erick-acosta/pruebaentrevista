@@ -1,12 +1,8 @@
-
 <?php
+namespace App\Http\Controllers;
 
-namespace Controllers;
-
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Region;
-use App\Models\Commune;
+
 
 
 
