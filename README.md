@@ -1,5 +1,7 @@
-Proyecto FullStack PHP - Prueba de Entrevista
+# Proyecto FullStack PHP - Prueba de Entrevista
+
 Descripción General
+
 Este proyecto consiste en la implementación de una serie de servicios RESTful para la gestión de clientes (Customers) en una base de datos relacional. Se utilizan las herramientas provistas por el framework Lumen o Laravel para garantizar seguridad, control de accesos y una correcta estructura de middleware. El proyecto incluye autenticación, validaciones, y manejo de logs.
 
 ## Funcionalidades
@@ -29,12 +31,10 @@ Requerimientos
 
  1. Clona el repositorio desde GitHub:
 
-```bash
+``bash
    git clone https://github.com/erick-acosta/pruebaentrevista.git
 
-o https
 
-git clone https://github.com/erick-acosta/pruebaentrevista.git 
 
 Dirígete al directorio del proyecto:
 
@@ -65,21 +65,21 @@ Configura el archivo .env copiando el .env.example:
 
 
 
-bash
+``bash
 Copiar código
 cp .env.example .env
 Modifica las variables de entorno en el archivo .env con los valores correspondientes para tu entorno, asegurándote de configurar la conexión a la base de datos y el parámetro APP_DEBUG en false si estás en producción.
 
 Ejecuta las migraciones de la base de datos:
 
-bash
+``bash
 Copiar código
 php artisan migrate
 Levanta el contenedor Docker para el ambiente de desarrollo:
 
 
 
-bash
+``bash
 
 docker ps 
 
