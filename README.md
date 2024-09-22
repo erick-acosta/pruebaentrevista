@@ -2,30 +2,40 @@ Proyecto FullStack PHP - Prueba de Entrevista
 Descripción General
 Este proyecto consiste en la implementación de una serie de servicios RESTful para la gestión de clientes (Customers) en una base de datos relacional. Se utilizan las herramientas provistas por el framework Lumen o Laravel para garantizar seguridad, control de accesos y una correcta estructura de middleware. El proyecto incluye autenticación, validaciones, y manejo de logs.
 
-Funcionalidades
+## Funcionalidades
 
-Registro de Customers: Se crea un nuevo cliente asociado a una región y comuna, realizando todas las validaciones pertinentes.
-Consulta de Customers: Permite consultar clientes por DNI o email, solo retornando aquellos que están activos.
-Eliminación Lógica de Customers: Permite eliminar lógicamente un cliente, siempre que este esté en estado activo o inactivo.
-Autenticación: Se implementa un sistema de autenticación que genera un token con tiempo de vida que debe ser utilizado en todos los servicios.
+- **Registro de Customers**: Crea un nuevo cliente asociado a una región y comuna, realizando todas las validaciones necesarias.
+- **Consulta de Customers**: Permite consultar clientes por DNI o email, solo retornando aquellos que están activos.
+- **Eliminación Lógica de Customers**: Elimina lógicamente un cliente, siempre que esté en estado activo o inactivo.
+- **Autenticación**: Sistema de autenticación que genera un token con tiempo de vida, utilizado en todos los servicios.
+
+
 Requerimientos
-Software
-PHP (última versión estable)
-Lumen/Laravel (última versión estable)
-Docker Desktop para la ejecución de contenedores.
-Thunder Client para pruebas de los servicios.
-Dependencias
-PHP >= 7.3
-Composer
-Extensiones de PHP: OpenSSL, PDO, Mbstring
-Lumen/Laravel
-Docker para el despliegue de contenedores
-Instalación
-Clona el repositorio desde GitHub:
+### Software
+- PHP 8.3.11
+- Lumen/Laravel 11
+- Docker Desktop para la ejecución de contenedores.
+- Thunder Client para pruebas de los servicios.
 
-bash
-Copiar código
-git clone https://github.com/erick-acosta/pruebaentrevista
+
+### Dependencias
+- PHP >= 7.3
+- Composer
+- Extensiones de PHP: OpenSSL, PDO, Mbstring
+- Lumen/Laravel
+
+
+## Instalación
+
+ 1. Clona el repositorio desde GitHub:
+
+```bash
+   git clone https://github.com/erick-acosta/pruebaentrevista.git
+
+o https
+
+git clone https://github.com/erick-acosta/pruebaentrevista.git 
+
 Dirígete al directorio del proyecto:
 
 bash
@@ -37,6 +47,23 @@ bash
 Copiar código
 composer install
 Configura el archivo .env copiando el .env.example:
+
+"require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.9",
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.9",
+        "tymon/jwt-auth": "^2.1"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "laravel/pint": "^1.13",
+        "laravel/sail": "^1.26",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.0",
+        "phpunit/phpunit": "^11.0.1"
+
+
 
 bash
 Copiar código
@@ -50,14 +77,12 @@ Copiar código
 php artisan migrate
 Levanta el contenedor Docker para el ambiente de desarrollo:
 
-bash
-Copiar código
-docker-compose up -d
-Verifica que los contenedores se estén ejecutando correctamente con el comando:
+
 
 bash
-Copiar código
-docker ps
+
+docker ps 
+
 Servicios
 Autenticación
 Ruta: /api/login
@@ -149,6 +174,7 @@ Modelo de Base de Datos
 regions: Almacena las regiones disponibles en el sistema.
 communes: Comunas relacionadas a las regiones.
 customers: Información de los clientes, incluyendo estado (activo, inactivo, eliminado).
+
 sql
 Copiar código
 CREATE TABLE IF NOT EXISTS `regions` (
@@ -180,7 +206,8 @@ CREATE TABLE IF NOT EXISTS `customers` (
     UNIQUE (`email`)
 );
 Despliegue
-Ejecuta el proyecto en un entorno local utilizando Docker Desktop.
+
+El despliegue se realizará en un servidor de producción con el entorno definido
 Realiza pruebas de los servicios utilizando Thunder Client o Postman.
 Si es necesario, configura el entorno para despliegue en producción, asegurándote de desactivar los logs de salida con el parámetro APP_DEBUG=false.
 Conclusión
